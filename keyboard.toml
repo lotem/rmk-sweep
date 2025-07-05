@@ -34,36 +34,21 @@ name = "base"
 keys = """
 Q W E R T Y U I O P
 A S D F G H J K L Enter
-MT(Z, LShift) X C V B N M Comma Dot MT(Slash, RShift)
-LCtrl MO(1) Space Backspace
+Z X C V B N M Comma Dot Slash
+MO(1) LShift Space Backspace
 """
 
 [[layer]]
 name = "upper"
 keys = """
 Kc1 Kc2 Kc3 Kc4 Kc5 Kc6 Kc7 Kc8 Kc9 Kc0
-Grave No OSL(3) OSL(2) No No Minus Equal LeftBracket RightBracket
-LShift LCtrl LAlt LGui No No RGui MT(Semicolon, RAlt) MT(Quote, RCtrl) MT(Backslash, RShift)
+LShift Grave Minus Equal LeftBracket RightBracket Semicolon Quote Backslash RShift
+LCtrl LAlt LGui Left Right Up Down RGui RAlt RCtrl
 _ _ Tab Escape
 """
 
-[[layer]]
-name = "lower"
-keys = """
-F1 F2 F3 F4 F5 F6 F7 F8 F9 F10
-F11 F12 PrintScreen ScrollLock Pause Left Down Up Right CapsLock
-LShift LCtrl LAlt LGui No Home PageDown PageUp End RShift
-_ _ Insert Delete
-"""
-
-[[layer]]
-name = "adjust"
-keys = """
-@bt0 @bt1 @bt2 @bt_clr @usb_ble No MediaPrevTrack MediaPlayPause MediaNextTrack AudioMute
-AudioVolDown AudioVolUp No No No MouseLeft MouseDown MouseUp MouseRight No
-LShift LCtrl LAlt LGui No No MouseWheelUp MouseWheelDown No RShift
-_ _ MouseBtn1 MouseBtn2
-"""
+[behavior]
+tap_hold = { enable_hrm = true, permissive_hold = true }
 
 [ble]
 enabled = true
