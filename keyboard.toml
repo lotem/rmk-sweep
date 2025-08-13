@@ -10,57 +10,97 @@ chip = "nrf52840"
 # WARNING: Currently row2col/col2row is set in RMK's feature gate, row2col config here is valid ONLY when you're using cloud compilation.
 # Checkout doc here: https://rmk.rs/docs/user_guide/faq.html#my-matrix-is-row2col-the-matrix-doesn-t-work
 # row2col = true
-rows = 4
-cols = 3
-layers = 2
-keymap = [
-    [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
-    ],
-    [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
-    ],
-]
+rows = 8
+cols = 5
+layers = 4
+matrix_map = """
+    (0,0) (0,1) (0,2) (0,3) (0,4)  (4,4) (4,3) (4,2) (4,1) (4,0)
+    (1,0) (1,1) (1,2) (1,3) (1,4)  (5,4) (5,3) (5,2) (5,1) (5,0)
+    (2,0) (2,1) (2,2) (2,3) (2,4)  (6,4) (6,3) (6,2) (6,1) (6,0)
+                      (3,0) (3,1)  (7,1) (7,0)
+"""
+
+[aliases]
+BT0 = "User0"
+BT1 = "User1"
+BT2 = "User2"
+BT_NEXT = "User3"
+BT_PREV = "User4"
+BT_CLR = "User5"
+USB_BLE = "User6"
+
+[[layer]]
+name = "base"
+keys = """
+LT(2, Q) W E R T Y U I O LT(2, P)
+A S D F G H J K L Enter
+MT(Z, LShift) X C V B N M Comma Dot MT(Slash, RShift)
+MO(1) LCtrl Space Backspace
+"""
+
+[[layer]]
+name = "upper"
+keys = """
+Kc1 Kc2 Kc3 Kc4 Kc5 Kc6 Kc7 Kc8 Kc9 Kc0
+LGui LAlt LCtrl LShift MO(2) No Minus Equal LeftBracket RightBracket
+CapsLock No No No MO(3) No Semicolon Quote Backslash Grave
+_ _ Tab Escape
+"""
+
+[[layer]]
+name = "lower"
+keys = """
+F1 F2 F3 F4 F5 F6 F7 F8 F9
+LGui LAlt LCtrl LShift No  Left Down Up Right F11
+No No No No No Home PageDown PageUp End F12
+_ _ Insert Delete
+"""
+
+[[layer]]
+name = "adjust"
+keys = """
+@BT0 @BT1 @BT2 @BT_CLR @USB_BLE No MediaPrevTrack MediaPlayPause MediaNextTrack No
+No No No No No No AudioVolDown AudioVolUp AudioMute No
+No No No No No No No No No No
+No No No No
+"""
+
+[behavior]
+tap_hold = { enable_hrm = true, permissive_hold = true, chordal_hold = true }
 
 [ble]
 enabled = true
-
-[behavior]
-tap_hold = { enable_hrm = true }
 
 [split]
 connection = "ble"
 
 [split.central]
-rows = 2
-cols = 2
+rows = 4
+cols = 5
 row_offset = 0
 col_offset = 0
 [split.central.matrix]
-input_pins = ["P1_04", "P1_06"]
-output_pins = ["P0_02", "P1_15"]
+matrix_type = "direct_pin"
+direct_pin_low_active = true
+direct_pins = [
+    ["P0_09", "P0_02", "P0_29", "P0_31", "P0_30"],
+    ["P1_13", "P0_03", "P0_28", "P1_11", "P0_06"],
+    ["P0_15", "P0_17", "P0_20", "P0_13", "P0_24"],
+    ["P0_10", "P1_06", "_", "_", "_" ]
+]
 
 [[split.peripheral]]
-rows = 2
-cols = 1
-row_offset = 2
-col_offset = 2
+rows = 4
+cols = 5
+row_offset = 4
+col_offset = 0
 
 [split.peripheral.matrix]
-input_pins = ["P1_04", "P1_06"]
-output_pins = ["P0_02"]
-
-# [[split.peripheral]]
-# rows = 2
-# cols = 1
-# row_offset = 2
-# col_offset = 2
-# serial = [{ instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" }]
-# input_pins = ["PIN_9", "PIN_11"]
-# output_pins = ["PIN_10"]
+matrix_type = "direct_pin"
+direct_pin_low_active = true
+direct_pins = [
+    ["P0_09", "P0_02", "P0_29", "P0_31", "P0_30"],
+    ["P1_13", "P0_03", "P0_28", "P1_11", "P0_06"],
+    ["P0_15", "P0_17", "P0_20", "P0_13", "P0_24"],
+    ["P0_10", "P1_06", "_", "_", "_" ]
+]
