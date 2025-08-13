@@ -66,7 +66,7 @@ No No No No
 """
 
 [behavior]
-tap_hold = { enable_hrm = true, permissive_hold = true, chordal_hold = true }
+tap_hold = { enable_hrm = true, permissive_hold = true, unilateral_tap = true, hold_on_other_press = true }
 
 [ble]
 enabled = true
