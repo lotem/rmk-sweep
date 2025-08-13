@@ -21,6 +21,28 @@ matrix_map = """
 """
 
 [aliases]
+EXLM = "WM(Kc1, LShift)"
+AT = "WM(Kc2, LShift)"
+HASH = "WM(Kc3, LShift)"
+DLR = "WM(Kc4, LShift)"
+PERC = "WM(Kc5, LShift)"
+CIRC = "WM(Kc6, LShift)"
+AMPR = "WM(Kc7, LShift)"
+ASTR = "WM(Kc8, LShift)"
+LPRN = "WM(Kc9, LShift)"
+RPRN = "WM(Kc0, LShift)"
+UNDS = "WM(Minus, LShift)"
+PLUS = "WM(Equal, LShift)"
+LCBR = "WM(LeftBracket, LShift)"
+RCBR = "WM(RightBracket, LShift)"
+COLN = "WM(Semicolon, LShift)"
+DQUO = "WM(Quote, LShift)"
+PIPE = "WM(Backslash, LShift)"
+TILD = "WM(Grave, LShift)"
+MINS = "MT(Minus, RGui)"
+EQL = "MT(Equal, RAlt)"
+LBRC = "MT(LeftBracket, RCtrl)"
+RBRC = "MT(RightBracket, RShift)"
 BT0 = "User0"
 BT1 = "User1"
 BT2 = "User2"
@@ -32,37 +54,37 @@ USB_BLE = "User6"
 [[layer]]
 name = "base"
 keys = """
-LT(2, Q) W E R T Y U I O LT(2, P)
-A S D F G H J K L Enter
-MT(Z, LShift) X C V B N M Comma Dot MT(Slash, RShift)
-MO(1) LCtrl Space Backspace
+Q W E R T Y U I O P
+MT(A, LShift) S D F G H J K L MT(Enter, RShift)
+MT(Z, LGui) X C V B N M Comma Dot MT(Slash, RAlt)
+LT(1, Tab) MT(Escape, LCtrl) Space LT(1, Backspace)
 """
 
 [[layer]]
 name = "upper"
 keys = """
-Kc1 Kc2 Kc3 Kc4 Kc5 Kc6 Kc7 Kc8 Kc9 Kc0
-LGui LAlt LCtrl LShift MO(2) No Minus Equal LeftBracket RightBracket
-CapsLock No No No MO(3) No Semicolon Quote Backslash Grave
-_ _ Tab Escape
+@EXLM @AT @HASH @DLR @PERC @CIRC @AMPR @ASTR @LPRN @RPRN
+LShift LCtrl LAlt LGui No No @UNDS @PLUS @LCBR @RCBR
+CapsLock No No No No No @COLN @DQUO @PIPE @TILD
+_ _ _ MO(3)
 """
 
 [[layer]]
 name = "lower"
 keys = """
-F1 F2 F3 F4 F5 F6 F7 F8 F9
-LGui LAlt LCtrl LShift No  Left Down Up Right F11
-No No No No No Home PageDown PageUp End F12
-_ _ Insert Delete
+Kc1 Kc2 Kc3 Kc4 Kc5 Kc6 Kc7 Kc8 Kc9 Kc0
+LShift LCtrl LAlt LGui No No @MINS @EQL @LBRC @RBRC
+CapsLock No No No No No Semicolon Quote Backslash Grave
+MO(3) _ _ _
 """
 
 [[layer]]
 name = "adjust"
 keys = """
-@BT0 @BT1 @BT2 @BT_CLR @USB_BLE No MediaPrevTrack MediaPlayPause MediaNextTrack No
-No No No No No No AudioVolDown AudioVolUp AudioMute No
-No No No No No No No No No No
-No No No No
+F1 F2 F3 F4 F5 F6 F7 F8 F9 F10
+F11 F12 PrintScreen No No Left Down Up Right Delete
+@BT0 @BT1 @BT2 @BT_CLR @USB_BLE MediaNextTrack AudioMute AudioVolDown AudioVolUp MediaPlayPause
+_ _ _ _
 """
 
 [behavior]
