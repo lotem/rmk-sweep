@@ -39,10 +39,7 @@ COLN = "WM(Semicolon, LShift)"
 DQUO = "WM(Quote, LShift)"
 PIPE = "WM(Backslash, LShift)"
 TILD = "WM(Grave, LShift)"
-MINS = "MT(Minus, RGui)"
-EQL = "MT(Equal, RAlt)"
-LBRC = "MT(LeftBracket, RCtrl)"
-RBRC = "MT(RightBracket, RShift)"
+
 BT0 = "User0"
 BT1 = "User1"
 BT2 = "User2"
@@ -51,39 +48,54 @@ BT_PREV = "User4"
 BT_CLR = "User5"
 USB_BLE = "User6"
 
+MUTE = "AudioMute"
+VOLD = "AudioVolDown"
+VOLU = "AudioVolUp"
+MPLY = "MediaPlayPause"
+MNXT = "MediaNextTrack"
+
+SFT_A = "MT(A, LShift)"
+CTL_Z = "MT(Z, LCtrl)"
+SFT_QUO = "MT(Quote, RShift)"
+GUI_COM = "MT(Comma, RGui)"
+ALT_DOT = "MT(Dot, RAlt)"
+CTL_SLS = "MT(Slash, RCtrl)"
+SYM_TAB = "LT(1, Tab)"
+NUM_BSP = "LT(2, Backspace)"
+
 [[layer]]
 name = "base"
 keys = """
-Q W E R T Y U I O P
-MT(A, LShift) S D F G H J K L MT(Enter, RShift)
-MT(Z, LGui) X C V B N M Comma Dot MT(Slash, RAlt)
-LT(1, Tab) MT(Escape, LCtrl) Space LT(1, Backspace)
+Q      W E R T Y U I        O        P
+@SFT_A S D F G H J K        L        @SFT_QUO
+@CTL_Z X C V B N M @GUI_COM @ALT_DOT @CTL_SLS
+@SYM_TAB Enter Space @NUM_BSP
 """
 
 [[layer]]
 name = "upper"
 keys = """
-@EXLM @AT @HASH @DLR @PERC @CIRC @AMPR @ASTR @LPRN @RPRN
-LShift LCtrl LAlt LGui No No @UNDS @PLUS @LCBR @RCBR
-CapsLock No No No No No @COLN @DQUO @PIPE @TILD
-_ _ _ MO(3)
+No    LeftBracket @LCBR @RCBR  No    @CIRC @LPRN @RPRN RightBracket @TILD
+@EXLM @AT         @HASH @DLR   @PERC @AMPR Minus Equal Backslash    Grave
+LCtrl LAlt        LGui  LShift No    @ASTR @UNDS @PLUS @PIPE        Slash
+_ Escape _ MO(3)
 """
 
 [[layer]]
 name = "lower"
 keys = """
-Kc1 Kc2 Kc3 Kc4 Kc5 Kc6 Kc7 Kc8 Kc9 Kc0
-LShift LCtrl LAlt LGui No No @MINS @EQL @LBRC @RBRC
-CapsLock No No No No No Semicolon Quote Backslash Grave
-MO(3) _ _ _
+Insert   Kc1 Kc2 Kc3 Minus Home PageDown PageUp End   @COLN
+Delete   Kc4 Kc5 Kc6 Dot   Left Down     Up     Right Semicolon
+CapsLock Kc7 Kc8 Kc9 Kc0   No   RShift   RGui   RAlt  RCtrl
+MO(3) Escape _ _
 """
 
 [[layer]]
 name = "adjust"
 keys = """
-F1 F2 F3 F4 F5 F6 F7 F8 F9 F10
-F11 F12 PrintScreen No No Left Down Up Right Delete
-@BT0 @BT1 @BT2 @BT_CLR @USB_BLE MediaNextTrack AudioMute AudioVolDown AudioVolUp MediaPlayPause
+No F1 F2  F3  F4  @BT0  @BT1   @BT2  @BT_CLR @USB_BLE
+No F5 F6  F7  F8  @MUTE @VOLD  @VOLU @MPLY   @MNXT
+No F9 F10 F11 F12 No    RShift RGui  RAlt    RCtrl
 _ _ _ _
 """
 
